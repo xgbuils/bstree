@@ -8,7 +8,6 @@ console.debug = function (obj) {
     console.log(util.inspect(obj, { showHidden: true, depth: null }));
 }
 
-
 function BSTGenerator (array) {
   return permutations(array).map(function (perm) {
     var bst = new BSTree()

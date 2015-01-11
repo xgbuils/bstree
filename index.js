@@ -93,14 +93,12 @@ function deleteAndReplace (parent, childName) {
 
 function remove (parent, childName, element) {
     var node = parent[childName]
-    //console.log(node.data)
     if (node) {
         if        (this._comparator(element, node.data)) {
             return remove.call(this, node, 'left', element)
         } else if (this._comparator(node.data, element)){
             return remove.call(this, node, 'right', element)
         } else if (element === node.data) {
-            //console.log(node.data)
             deleteAndReplace(parent, childName)
             this.length--
             return element
@@ -111,31 +109,5 @@ function remove (parent, childName, element) {
 }
 
 var util = require('util')
-
-console.debug = function (obj) {
-    console.log(util.inspect(obj, { showHidden: true, depth: null }));
-}
-
-var bst = new BSTree()
-
-bst.add('albert')
-bst.add('fran')
-bst.add('frank')
-
-console.debug(bst.root)
-
-console.log(bst.removeTop('frank'))
-
-console.debug(bst.root)
-
-console.log(bst.removeBottom('albert'))
-
-console.debug(bst.root)
-
-console.log(bst.removeTop('fran'))
-
-console.debug(bst.root)
-
-
 
 module.exports = BSTree
