@@ -28,7 +28,7 @@ module.exports = function(grunt) {
             options: {
                 standalone: "app"
             },
-            src: './lib/bstree.js',
+            src: './index.js',
             dest: './bstree.src.js'
         }
     },

@@ -1,5 +1,19 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /**
+  The entry point.
+  @module bstree
+**/
+console.log('hello world')
+if (exports) {
+	console.log('node')
+    module.exports = require('./lib/bstree.js')
+} else {
+	console.log('browser')
+	window.BSTree = require('./lib/bstree.js')
+}
+
+},{"./lib/bstree.js":2}],2:[function(require,module,exports){
+/**
  *  Creates a new binary search tree. 
  *  @param {Function} comparator
  *  @constructor
@@ -206,3 +220,4 @@ function remove (parent, childName, element) {
 
 module.exports = BSTree
 },{}]},{},[1]);
+console.log('hello')
