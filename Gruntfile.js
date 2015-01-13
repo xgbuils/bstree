@@ -25,8 +25,15 @@ module.exports = function(grunt) {
     },
     browserify: {
         build: {
+            // before 1.x.y
+            //options: {
+            //    standalone: "app"
+            //},
+            // now ->
             options: {
-                standalone: "app"
+                browserifyOptions: {
+                    standalone: 'BSTree',
+                }
             },
             src: './index.js',
             dest: './bstree.src.js'
@@ -36,11 +43,18 @@ module.exports = function(grunt) {
         dist: {
             src: './bstree.src.js',
             dest: './bstree.min.js'
-        }           
+        },
+        options: {
+            //compress: true,
+            mangle: {
+              except: ['BSTree']
+            },
+        }        
     },
   });
 
   grunt.registerTask('default', 'mochaTest');
   grunt.registerTask('test', 'mochaTest');
+  grunt.registerTask('bower', ['browserify', 'uglify']);
 
 };
