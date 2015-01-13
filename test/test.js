@@ -77,7 +77,7 @@ describe('BSTree()', function() {
     it('#length === 4 when a element is added four elements in empty binary search tree', function() {
       var trees = BSTGenerator(['jano' ,'valentina' ,'zombie' ,'fran' ]);
       trees.forEach(function (tree) {
-        expect(tree[0].bottom()).to.be('fran');
+        expect(tree[0].length).to.be(4);
       })      
     });
   });
@@ -165,17 +165,17 @@ describe('BSTree()', function() {
       ]);
       trees.forEach(function (tree) {
         it('order of elements addition: ' + tree[1].join(', '), function() {
-/*
-          expect(tree[0].remove('jano')).to.be('jano')
-          expect(tree[0].top()).to.be('zombie')
-          expect(tree[0].bottom()).to.be('albert')
-          expect(tree[0].length).to.be(6);
 
-          expect(tree[0].remove('valentina')).to.be('valentina')
-          expect(tree[0].top()).to.be('zombie')
-          expect(tree[0].bottom()).to.be('albert')
-          expect(tree[0].length).to.be(5);
-*/
+//          expect(tree[0].remove('jano')).to.be('jano')
+//          expect(tree[0].top()).to.be('zombie')
+//          expect(tree[0].bottom()).to.be('albert')
+//          expect(tree[0].length).to.be(6);
+
+//          expect(tree[0].remove('valentina')).to.be('valentina')
+//          expect(tree[0].top()).to.be('zombie')
+//          expect(tree[0].bottom()).to.be('albert')
+//          expect(tree[0].length).to.be(5);
+
           expect(tree[0].remove('zombie')).to.be('zombie')
           expect(tree[0].top()).to.be('frank')
           expect(tree[0].bottom()).to.be('albert')
@@ -205,6 +205,7 @@ describe('BSTree()', function() {
     });
   })
 
+
   describe('#removeTop() & #removeBottom()', function() {
     it('returns undefined when the queue is empty', function() {
       var bst = new BSTree();
@@ -223,17 +224,17 @@ describe('BSTree()', function() {
       ]);
       trees.forEach(function (tree) {
         it('order of elements addition: ' + tree[1].join(', '), function() {
-/*
-          expect(tree[0].remove('jano')).to.be('jano')
-          expect(tree[0].top()).to.be('zombie')
-          expect(tree[0].bottom()).to.be('albert')
-          expect(tree[0].length).to.be(6);
 
-          expect(tree[0].remove('valentina')).to.be('valentina')
-          expect(tree[0].top()).to.be('zombie')
-          expect(tree[0].bottom()).to.be('albert')
-          expect(tree[0].length).to.be(5);
-*/
+//          expect(tree[0].remove('jano')).to.be('jano')
+//          expect(tree[0].top()).to.be('zombie')
+//          expect(tree[0].bottom()).to.be('albert')
+//          expect(tree[0].length).to.be(6);
+
+//          expect(tree[0].remove('valentina')).to.be('valentina')
+//          expect(tree[0].top()).to.be('zombie')
+//          expect(tree[0].bottom()).to.be('albert')
+//          expect(tree[0].length).to.be(5);
+
           expect(tree[0].removeTop()).to.be('zombie')
           expect(tree[0].top()).to.be('frank')
           expect(tree[0].bottom()).to.be('albert')

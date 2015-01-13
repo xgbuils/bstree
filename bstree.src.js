@@ -94,7 +94,8 @@ function add (parent, childName, element) {
     var node = parent[childName]
     if (!node) {
         parent[childName] = {
-            data: element
+            data: element,
+            parent: parent
         }
     } else if (this._comp(element, node.data)) {
         add.call(this, node, 'left' , element)
@@ -114,12 +115,10 @@ function add (parent, childName, element) {
  *  @complexity O(log n), at the worst case: O(n) 
  */
 function searchExtrem (node, childName) {
-    var parent
     while (node[childName]) {
-        parent = node
         node = node[childName]
     }
-    return [node, parent]
+    return node
 }
     
 /**
@@ -133,13 +132,13 @@ function searchExtrem (node, childName) {
  */
 function removeExtrem (optionName) {
     if (this.root) {
-        var arr = searchExtrem(this.root, optionName)
-        var parent = arr[1] || this
-        if (arr[1] === undefined)
+        var extrem = searchExtrem(this.root, optionName)
+        if (extrem.parent === this) {
             optionName = 'root'
-        deleteAndReplace(parent, optionName)
+        }
+        deleteAndReplace(extrem.parent, optionName)
         this.length--
-        return arr[0].data
+        return extrem.data
     } else {
         return undefined
     }
@@ -157,7 +156,7 @@ function removeExtrem (optionName) {
  */
 function extrem (optionName) {
     if (this.root) {
-        return searchExtrem(this.root, optionName)[0].data
+        return searchExtrem(this.root, optionName).data
     } else {
         return undefined
     }
@@ -172,20 +171,25 @@ function extrem (optionName) {
 function deleteAndReplace (parent, childName) {
     var node = parent[childName]
     if        (node.left  === undefined) {
-        parent[childName] = node.right
+        node = parent[childName] = node.right
     } else if (node.right === undefined) {
-        parent[childName] = node.left
+        node = parent[childName] = node.left
     } else {
-        var arr = searchExtrem(node.right, 'left')
-        var parentRightFewest = arr[1]
-        var rightFewest = parentRightFewest !== undefined ? arr[0] : node.right
+        var rightFewest = searchExtrem(node.right, 'left')
         node.data = rightFewest.data
-        if (parentRightFewest) {
-            parentRightFewest.left = rightFewest.right
+        parent = rightFewest.parent
+        
+        if (parent === node) {
+            parent.right = rightFewest.right
         } else {
-            node.right = rightFewest.right
+            parent.left  = rightFewest.right
         }
+        node = rightFewest.right
+        rightFewest.parent = parent
     }
+
+    if (node)
+        node.parent = parent
 }
     
 /**
@@ -214,5 +218,7 @@ function remove (parent, childName, element) {
 }
 
 module.exports = BSTree
+
+
 },{}]},{},[1])(1)
 });
