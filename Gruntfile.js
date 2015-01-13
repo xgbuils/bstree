@@ -27,7 +27,7 @@ module.exports = function(grunt) {
         build: {
             // before 1.x.y
             //options: {
-            //    standalone: "app"
+            //    standalone: "BSTree"
             //},
             // now ->
             options: {
