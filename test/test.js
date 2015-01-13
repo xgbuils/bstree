@@ -35,29 +35,29 @@ describe('BSTree()', function() {
     var bst = new BSTree()
     context('given strings', function() {
       it('returns true when a < b', function() {
-        expect(bst._comparator('jano', 'valentina')).to.be(true);
+        expect(bst._comp('jano', 'valentina')).to.be(true);
       });
 
       it('returns false when a == b', function() {
-        expect(bst._comparator('jano', 'jano')).to.be(false);
+        expect(bst._comp('jano', 'jano')).to.be(false);
       });
 
       it('returns false number when a > b', function() {
-        expect(bst._comparator('jano', 'fran')).to.be(false);
+        expect(bst._comp('jano', 'fran')).to.be(false);
       });
     });
 
     context('given numbers', function() {
       it('returns true when a < b', function() {
-        expect(bst._comparator(10, 1000)).to.be(true);
+        expect(bst._comp(10, 1000)).to.be(true);
       });
 
       it('returns false a == b', function() {
-        expect(bst._comparator(10, 10)).to.be(false);
+        expect(bst._comp(10, 10)).to.be(false);
       });
 
       it('returns false when a > b', function() {
-        expect(bst._comparator(10, 1)).to.be(false);
+        expect(bst._comp(10, 1)).to.be(false);
       });
     });
   });
