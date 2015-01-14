@@ -1,6 +1,6 @@
 {
   "name": "bstree",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Binary search tree implementation",
   "main": "index.js",
   "scripts": {
