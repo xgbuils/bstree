@@ -6,8 +6,7 @@ _________
 Install
 ---------
 ``` bash
-git clone https://github.com/xgbuils/bstree.git
-npm install
+npm install bstree
 ```
 
 Future Example (Now it does not work because package bstree has not been published)
