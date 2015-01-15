@@ -75,7 +75,8 @@ var tree = new BSTree();
 tree.add(5)
 ```
 ### Algorithm complexity:
-Logarithmic in #length
+In the average case: logarithmic in #length
+In the worst case: linear in #length
 
 ## #bottom()
 --------
@@ -84,13 +85,13 @@ Returns the minimum value in the tree.
 ### Example:
 ``` javascript
 var tree = new BSTree()
-[7,3,10,5,1,6,9,8,2].forEach(tree.add, tree)
+;[7,3,10,5,1,6,9,8,2].forEach(tree.add, tree)
 
 console.log(tree.bottom()) // 1
 ```
 
 ### Algorithm complexity:
-Logarithmic in #length
+Constant in #length
 
 ## #length
 --------
@@ -111,13 +112,13 @@ Returns the maximum value in the tree.
 
 ### Example:
 ``` javascript
-var tree = new BSTree();
-[7,3,10,5,1,6,9,8,2].forEach(tree.add, tree);
+var tree = new BSTree()
+;[7,3,10,5,1,6,9,8,2].forEach(tree.add, tree);
 
 console.log(tree.top()) // 10
 ```
 ### Algorithm complexity:
-Logarithmic in #length
+Constant in #length
 
 ## #remove(element)
 --------
@@ -125,8 +126,8 @@ Removes the given element from the tree if it exists. Returns `element` if a rem
 
 ### Example
 ``` javascript
-var tree = new BSTree();
-[7,3,10,5,1,6,9,8,2].forEach(tree.add, tree);
+var tree = new BSTree()
+;[7,3,10,5,1,6,9,8,2].forEach(tree.add, tree);
 
 console.log(tree.remove(8)) // 8
 
@@ -138,7 +139,8 @@ tree.forEach(function (element) { // It is not yet implemented.
 console.log(sorted_array) // [1, 2, 3, 4, 5, 6, 7, 9, 10]
 ```
 ### Algorithm complexity:
-Logarithmic in #length
+In the average case: logarithmic in #length
+In the worst case: linear in #length
 
 ## #removeBottom()
 --------
@@ -148,7 +150,7 @@ If it does not exist (tree is empty), returns `undefined`
 ###Example:
 ``` javascript
 var tree = BSTree()
-[7,3,10,5,1,6,9,8,2].forEach(tree.add, tree);
+;[7,3,10,5,1,6,9,8,2].forEach(tree.add, tree);
 
 console.log(tree.removeBottom()) // 1
 
@@ -160,7 +162,8 @@ tree.forEach(function (element) { // It is not yet implemented.
 console.log(sorted_array) // [2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 ### Algorithm complexity:
-Logarithmic in #length
+In the average case: logarithmic in #length
+In the worst case: linear in #length
 
 ## #removeTop()
 --------
@@ -170,7 +173,7 @@ If it does not exist (tree is empty), returns `undefined`
 ###Example:
 ``` javascript
 var tree = BSTree()
-[7,3,10,5,1,6,9,8,2].forEach(tree.add, tree);
+;[7,3,10,5,1,6,9,8,2].forEach(tree.add, tree);
 
 console.log(tree.removeTop()) // 10
 
@@ -182,4 +185,5 @@ tree.forEach(function (element) { // It is not yet implemented.
 console.log(sorted_array) // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 ### Algorithm complexity:
-Logarithmic in #length
+In the average case: logarithmic in #length
+In the worst case: linear in #length
