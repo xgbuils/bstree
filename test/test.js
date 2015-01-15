@@ -154,6 +154,99 @@ describe('BSTree()', function() {
     });
 
     context('remove elements', function() {
+      it('order of elements addition: albert, fran', function () {
+        var tree = new BSTree()
+        ;['albert', 'fran'].forEach(tree.add, tree)
+        expect(tree.remove('fran')).to.be('fran')
+        expect(tree.top()).to.be('albert')
+        expect(tree.bottom()).to.be('albert')
+      })
+
+      it('order of elements addition: albert, fran, zombie', function () {
+        var tree = new BSTree()
+        ;['albert', 'fran', 'zombie'].forEach(tree.add, tree)
+        expect(tree.remove('zombie')).to.be('zombie')
+        expect(tree.top()).to.be('fran')
+        expect(tree.bottom()).to.be('albert')
+      })
+
+      it('order of elements addition: zombie, fran, albert', function () {
+        var tree = new BSTree()
+        ;['zombie', 'fran', 'albert'].forEach(tree.add, tree)
+        expect(tree.remove('albert')).to.be('albert')
+        expect(tree.top()).to.be('zombie')
+        expect(tree.bottom()).to.be('fran')
+      })
+
+      it('order of elements addition: albert, fran, zombie', function () {
+        var tree = new BSTree()
+        ;['albert', 'fran', 'zombie'].forEach(tree.add, tree)
+        expect(tree.remove('albert')).to.be('albert')
+        expect(tree.top()).to.be('zombie')
+        expect(tree.bottom()).to.be('fran')
+      })
+
+      it('order of elements addition: zombie, fran, albert', function () {
+        var tree = new BSTree()
+        ;['zombie', 'fran', 'albert'].forEach(tree.add, tree)
+        expect(tree.remove('zombie')).to.be('zombie')
+        expect(tree.top()).to.be('fran')
+        expect(tree.bottom()).to.be('albert')
+      })
+
+      it('order of elements addition: valentina, frank, zombie', function () {
+        var tree = new BSTree()
+        ;['valentina', 'frank', 'zombie'].forEach(tree.add, tree)
+        expect(tree.remove('valentina')).to.be('valentina')
+        expect(tree.top()).to.be('zombie')
+        expect(tree.bottom()).to.be('frank')
+        expect(tree.length).to.be(2);
+
+        expect(tree.remove('zombie')).to.be('zombie')
+        expect(tree.top()).to.be('frank')
+        expect(tree.bottom()).to.be('frank')
+        expect(tree.length).to.be(1)
+      })
+
+      it('order of elements addition: zombie, albert, frank', function () {
+        var tree = new BSTree()
+        ;['zombie', 'albert', 'frank'].forEach(tree.add, tree)
+        expect(tree.remove('zombie')).to.be('zombie')
+        expect(tree.top()).to.be('frank')
+        //expect(tree.bottom()).to.be('albert')
+        //expect(tree.length).to.be(2);
+      })
+
+      it('order of elements addition: albert, frank, albert', function () {
+        var tree = new BSTree()
+        ;['albert', 'frank', 'albert'].forEach(tree.add, tree)
+        expect(tree.remove('albert')).to.be('albert')
+        expect(tree.top()).to.be('frank')
+
+        expect(tree.remove('albert')).to.be('albert')
+        expect(tree.top()).to.be('frank')
+        expect(tree.bottom()).to.be('frank')
+        //expect(tree.bottom()).to.be('albert')
+        //expect(tree.length).to.be(2);
+      })
+
+      it('order of elements addition: albert, fran, albert, frank', function () {
+        var tree = new BSTree()
+        ;['albert', 'fran', 'albert', 'frank'].forEach(tree.add, tree)
+        expect(tree.remove('fran')).to.be('fran')
+        expect(tree.top()).to.be('frank')
+        expect(tree.remove('albert')).to.be('albert')
+        expect(tree.top()).to.be('frank')
+        expect(tree.remove('albert')).to.be('albert')
+        expect(tree.top()).to.be('frank')
+        expect(tree.bottom()).to.be('frank')
+        //expect(tree.bottom()).to.be('albert')
+        //expect(tree.length).to.be(2);
+      })
+      
+
+
+
       var trees = new BSTGenerator([
         'albert',
         'albert',
@@ -170,7 +263,7 @@ describe('BSTree()', function() {
 //          expect(tree[0].top()).to.be('zombie')
 //          expect(tree[0].bottom()).to.be('albert')
 //          expect(tree[0].length).to.be(6);
-
+//
 //          expect(tree[0].remove('valentina')).to.be('valentina')
 //          expect(tree[0].top()).to.be('zombie')
 //          expect(tree[0].bottom()).to.be('albert')
@@ -229,7 +322,7 @@ describe('BSTree()', function() {
 //          expect(tree[0].top()).to.be('zombie')
 //          expect(tree[0].bottom()).to.be('albert')
 //          expect(tree[0].length).to.be(6);
-
+//
 //          expect(tree[0].remove('valentina')).to.be('valentina')
 //          expect(tree[0].top()).to.be('zombie')
 //          expect(tree[0].bottom()).to.be('albert')
@@ -265,4 +358,16 @@ describe('BSTree()', function() {
 
     // test with custom comparator
   });
+
+/*
+  describe('#forEach()', function() {
+    it('traverses elements in order', function() {
+      var tree = new BSTree();
+      [2, 3, 1, 4, 1].forEach(tree.add, tree)
+
+      var sorted_array = []
+      tree.forEach(sorted_array.push, sorted_array)
+      expect(sorted_array).to.be.eql([1,1,2,3,4])
+    });
+  });*/
 });
