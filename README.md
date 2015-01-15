@@ -9,7 +9,7 @@ Install
 npm install bstree
 ```
 
-Future Example (Now it does not work because package bstree has not been published)
+Example:
 ---------
 
 ``` javascript
@@ -76,6 +76,7 @@ tree.add(5)
 ```
 ### Algorithm complexity:
 In the average case: logarithmic in #length
+
 In the worst case: linear in #length
 
 ## #bottom()
@@ -132,7 +133,7 @@ var tree = new BSTree()
 console.log(tree.remove(8)) // 8
 
 var sorted_array = []
-tree.forEach(function (element) { // It is not yet implemented.
+tree.forEach(function (element) {
   sorted_array.push(element)
 })
 
@@ -140,6 +141,7 @@ console.log(sorted_array) // [1, 2, 3, 4, 5, 6, 7, 9, 10]
 ```
 ### Algorithm complexity:
 In the average case: logarithmic in #length
+
 In the worst case: linear in #length
 
 ## #removeBottom()
@@ -155,7 +157,7 @@ var tree = BSTree()
 console.log(tree.removeBottom()) // 1
 
 var sorted_array = []
-tree.forEach(function (element) { // It is not yet implemented.
+tree.forEach(function (element) {
   sorted_array.push(element)
 })
 
@@ -163,6 +165,7 @@ console.log(sorted_array) // [2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 ### Algorithm complexity:
 In the average case: logarithmic in #length
+
 In the worst case: linear in #length
 
 ## #removeTop()
@@ -178,7 +181,7 @@ var tree = BSTree()
 console.log(tree.removeTop()) // 10
 
 var sorted_array = []
-tree.forEach(function (element) { // It is not yet implemented.
+tree.forEach(function (element) {
   sorted_array.push(element)
 })
 
@@ -186,4 +189,5 @@ console.log(sorted_array) // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 ### Algorithm complexity:
 In the average case: logarithmic in #length
+
 In the worst case: linear in #length
