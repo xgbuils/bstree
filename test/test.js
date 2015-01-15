@@ -213,8 +213,8 @@ describe('BSTree()', function() {
         ;['zombie', 'albert', 'frank'].forEach(tree.add, tree)
         expect(tree.remove('zombie')).to.be('zombie')
         expect(tree.top()).to.be('frank')
-        //expect(tree.bottom()).to.be('albert')
-        //expect(tree.length).to.be(2);
+        expect(tree.bottom()).to.be('albert')
+        expect(tree.length).to.be(2);
       })
 
       it('order of elements addition: albert, frank, albert', function () {
@@ -222,12 +222,13 @@ describe('BSTree()', function() {
         ;['albert', 'frank', 'albert'].forEach(tree.add, tree)
         expect(tree.remove('albert')).to.be('albert')
         expect(tree.top()).to.be('frank')
+        expect(tree.bottom()).to.be('albert')
+        expect(tree.length).to.be(2);
 
         expect(tree.remove('albert')).to.be('albert')
         expect(tree.top()).to.be('frank')
         expect(tree.bottom()).to.be('frank')
-        //expect(tree.bottom()).to.be('albert')
-        //expect(tree.length).to.be(2);
+        expect(tree.length).to.be(1);
       })
 
       it('order of elements addition: albert, fran, albert, frank', function () {
@@ -235,13 +236,18 @@ describe('BSTree()', function() {
         ;['albert', 'fran', 'albert', 'frank'].forEach(tree.add, tree)
         expect(tree.remove('fran')).to.be('fran')
         expect(tree.top()).to.be('frank')
+        expect(tree.bottom()).to.be('albert')
+        expect(tree.length).to.be(3);
+
         expect(tree.remove('albert')).to.be('albert')
         expect(tree.top()).to.be('frank')
+        expect(tree.bottom()).to.be('albert')
+        expect(tree.length).to.be(2);
+
         expect(tree.remove('albert')).to.be('albert')
         expect(tree.top()).to.be('frank')
         expect(tree.bottom()).to.be('frank')
-        //expect(tree.bottom()).to.be('albert')
-        //expect(tree.length).to.be(2);
+        expect(tree.length).to.be(1);
       })
       
 
