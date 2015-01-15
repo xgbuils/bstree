@@ -365,7 +365,7 @@ describe('BSTree()', function() {
     // test with custom comparator
   });
 
-/*
+
   describe('#forEach()', function() {
     it('traverses elements in order', function() {
       var tree = new BSTree();
@@ -375,5 +375,5 @@ describe('BSTree()', function() {
       tree.forEach(sorted_array.push, sorted_array)
       expect(sorted_array).to.be.eql([1,1,2,3,4])
     });
-  });*/
+  });
 });
